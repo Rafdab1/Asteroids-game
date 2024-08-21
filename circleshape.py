@@ -16,3 +16,9 @@ class CircleShape(pygame.sprite.Sprite):
     
     def update(self,dt):
         raise NotImplementedError("Base class")
+    
+    def collision(self, CircleShape):
+        distance = self.position.distance_to(CircleShape.position)
+        if distance <= (self.radius + CircleShape.radius):
+            return True
+        return False
